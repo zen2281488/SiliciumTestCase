@@ -13,9 +13,7 @@ public class BrowserInit {
     }
     public static WebDriver getWebdriver() {
         WebDriver driver;
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webdriver.set(driver);
         return webdriver.get();
