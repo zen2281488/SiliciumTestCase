@@ -3,20 +3,23 @@ package cases;
 import io.qameta.allure.Issue;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pageObjects.*;
-import utils.ConfProperties;
+import pageObjects.AddCustomerPage;
+import pageObjects.CustomersListPage;
+import pageObjects.ManagerMainPage;
 import utils.BrowserInit;
-
-import java.lang.module.Configuration;
+import utils.ConfProperties;
 
 public class TestUnit {
+    public static ConfProperties pr;
     public WebDriver browser;
     public AddCustomerPage addCustomerPage;
     public ManagerMainPage managerMainPage;
     public CustomersListPage customersListPage;
-    public static ConfProperties pr;
 
     @Before
     @Step("Инициализация браузера")
@@ -31,36 +34,39 @@ public class TestUnit {
     @Issue("UI-XYZBank-001")
     @DisplayName("Проверка регистрации нового пользователя")
     public void testUIXYZ1() {
-        browser.get(pr.getProperty("mainTestPage"));
+        browser.get(ConfProperties.getProperty("mainTestPage"));
         managerMainPage.clickAddCustomerButton();
         addCustomerPage
                 .fillForm(
-                        pr.getProperty("addCustomerTestFirstName"),
-                        pr.getProperty("addCustomerTestLastName"),
-                        pr.getProperty("addCustomerTestPostalCode"))
+                        ConfProperties.getProperty("addCustomerTestFirstName"),
+                        ConfProperties.getProperty("addCustomerTestLastName"),
+                        ConfProperties.getProperty("addCustomerTestPostalCode"))
                 .clickAddCustomerButton();
-        Assert.assertTrue("Ошибка в тексте уведомления о регистрации новго пользователя", addCustomerPage.alertText().contains(pr.getProperty("assertRegistrationExpected")));
+        Assert.assertTrue("Ошибка в тексте уведомления о регистрации новго пользователя", addCustomerPage.alertText().contains(ConfProperties.getProperty("assertRegistrationExpected")));
         managerMainPage.clickCustomersButton();
         customersListPage.clear();
     }
+
     @Test
     @Issue("UI-XYZBank-002")
     @DisplayName("Проверка сортировки списка клиентов по FirstName")
     public void testUIXYZ2() {
-        browser.get(pr.getProperty("mainTestPage"));
+        browser.get(ConfProperties.getProperty("mainTestPage"));
         managerMainPage.clickCustomersButton();
         customersListPage.assertAbcSortFirstName()
                 .assertCbeSortFirstName();
     }
+
     @Test
     @Issue("UI-XYZBank-003")
     @DisplayName("Проверка поиска клиента по FirstName")
     public void testUIXYZ3() {
-        browser.get(pr.getProperty("mainTestPage"));
+        browser.get(ConfProperties.getProperty("mainTestPage"));
         managerMainPage.clickCustomersButton();
-        customersListPage.fillSearchCustomerInput(pr.getProperty("testSearchName"));
-        Assert.assertEquals(pr.getProperty("testSearchName"),customersListPage.getFirstCellName());
+        customersListPage.fillSearchCustomerInput(ConfProperties.getProperty("testSearchName"));
+        Assert.assertEquals(ConfProperties.getProperty("testSearchName"), customersListPage.getFirstCellName());
     }
+
     @After
     @Step("Очиска данных")
     public void after() {
