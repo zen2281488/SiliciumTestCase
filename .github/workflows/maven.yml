@@ -29,10 +29,6 @@ jobs:
         java-version: '11'
         distribution: 'corretto'
         cache: maven
-    - name: Install Google Chrome
-      run: |
-        chmod +x ./lib/install-chrome.sh
-                    ./lib/install-chrome.sh
 
     - name: Run UI XYZ Bank Tests via Maven
       run: mvn -B package --file pom.xml
