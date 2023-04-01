@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Apr 01 19:09:30 GMT 2023","Sat Apr 01 19:09:35 GMT 2023","4725","","cases.TestUnit","","cases.TestUnit","testUIXYZ3","Проверка поиска клиента по FirstName",""
+"passed","Sat Apr 01 19:09:30 GMT 2023","Sat Apr 01 19:09:35 GMT 2023","5193","","cases.TestUnit","","cases.TestUnit","testUIXYZ2","Проверка сортировки списка клиентов по FirstName",""
+"passed","Sat Apr 01 19:09:30 GMT 2023","Sat Apr 01 19:09:36 GMT 2023","5400","","cases.TestUnit","","cases.TestUnit","testUIXYZ1","Проверка регистрации нового пользователя",""
