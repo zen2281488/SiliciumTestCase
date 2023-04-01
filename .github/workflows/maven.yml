@@ -48,4 +48,4 @@ jobs:
         allure_history: allure-history
 
     - name: Compile allure Reports
-      run: mvn allure:report
+      run: mvn allure:serve
