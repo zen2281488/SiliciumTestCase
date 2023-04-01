@@ -17,11 +17,11 @@ jobs:
           distribution: 'adopt'
 
       - name: Set up Chrome
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         run: sudo apt-fast install -y google-chrome
 
       - name: Set up Chrome Driver
-        uses: nanasess/setup-chromedriver@master
+        uses: nanasess/setup-chromedriver@v1
         with:
           chromedriver-version: 'latest'
 
