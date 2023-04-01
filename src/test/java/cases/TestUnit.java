@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.*;
 import utils.ConfProperties;
 import utils.BrowserInit;
+
+import java.lang.module.Configuration;
+
 public class TestUnit {
     public WebDriver browser;
     public AddCustomerPage addCustomerPage;

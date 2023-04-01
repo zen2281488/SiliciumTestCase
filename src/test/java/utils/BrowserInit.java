@@ -1,6 +1,8 @@
 package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.util.concurrent.TimeUnit;
 
 public class BrowserInit {
@@ -11,11 +13,14 @@ public class BrowserInit {
     }
     public static WebDriver getWebdriver() {
         WebDriver driver;
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webdriver.set(driver);
         return webdriver.get();
     }
+
     public static synchronized void closeWebdriver() {
         if (webdriver.get() != null) {
             webdriver.get().quit();
