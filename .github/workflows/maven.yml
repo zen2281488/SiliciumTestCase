@@ -32,6 +32,6 @@ jobs:
         run: mvn -B clean test -Dwebdriver.chrome.driver=${{ env.CHROMEWEBDRIVER }}/chromedriver
 
       - name: Publish Allure results
-        uses: simple-icons/allure-report-action@v1
+        uses: allure-framework/allure2-action@2.9.2
         with:
           allure_results: 'allure-results'
