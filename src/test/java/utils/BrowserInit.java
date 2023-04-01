@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class BrowserInit {
     private static ThreadLocal<WebDriver> webdriver = new ThreadLocal<>();
     static{
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
+        System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
     }
     public static WebDriver getWebdriver() {
