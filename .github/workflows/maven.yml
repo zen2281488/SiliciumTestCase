@@ -33,14 +33,6 @@ jobs:
       run: |
         chmod +x ./lib/install-chrome.sh
                     ./lib/install-chrome.sh
-    - name: Install default-jre
-      run: sudo apt-get install default-jre
-
-    - name: wget
-      run: wget https://github.com/allure-framework/allure2/releases/download/2.18.1/allure_2.18.1-1_all.deb
-
-    - name: Install allure
-      run: sudo dpkg -i allure_2.18.1-1_all.deb
 
     - name: Run UI XYZ Bank Tests via Maven
       run: mvn -B package --file pom.xml
