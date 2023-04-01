@@ -51,4 +51,4 @@ jobs:
       run: sudo chmod -R 777 /home/runner/work/SiliciumTestCase/SiliciumTestCase/target/
 
     - name: Compile allure Reports
-      run: mvn allure:serve
+      run: mvn allure:report
