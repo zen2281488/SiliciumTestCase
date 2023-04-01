@@ -1,0 +1,17 @@
+image: maven:3.9.1-openjdk-11
+
+default:
+  tags:
+    - shelllocal
+
+stages:
+  - test
+
+Integration UI tests with Allure:
+  stage: test
+  script:
+    - mvn clean test
+    - mvn allure:report
+  artifacts:
+    paths:
+      - target/site/allure-maven-plugin/*
